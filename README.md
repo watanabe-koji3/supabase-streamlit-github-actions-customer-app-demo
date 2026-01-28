@@ -3,6 +3,21 @@
 「Supabase + Streamlit + GitHub Actions (すべて無料)」を使って「シンプルな顧客情報のCRUDアプリ」をデプロイまでやります。
 ※SupabaseとGitHub Actionsは初めて使うことを想定しています。
 
+---
+
+## 🎯 チュートリアルの対象者想定
+
+このチュートリアルは、以下のような **「脱・初心者」を目指すPythonユーザー** を想定して作成されています。
+
+* **Pythonでのツール作成に少し慣れてきた方**
+    * `Streamlit` を使ってブラウザで動くアプリを作った経験がある。
+    * GitHub と Streamlit Cloud を連携して、アプリを公開したことがある（または興味がある）。
+* **一歩進んだ技術にチャレンジしたい方**
+    * データの保存先がいつも CSV や Excel で、**本格的なデータベース（PostgreSQLなど）** を使った開発に挑戦してみたい。
+    * 自分のPCを立ち上げっぱなしにせず、プログラムを **定期実行（GitHub Actions）** させる「自動化」の仕組みを知りたい。
+
+---
+
 ### アプリの要件
 シンプルな登録・表示機能に加え、サーバーレスな運用を考慮した以下の機能を実装しました。
 * **登録**: 顧客名、関与日、事業内容を入力し、Supabaseに保存。
@@ -19,18 +34,6 @@
 以下のリンクから、ブラウザ上で実際にアプリを操作できます。
 [https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/](https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/)
 
----
-
-## 🎯 チュートリアルの対象者想定
-
-このチュートリアルは、以下のような **「脱・初心者」を目指すPythonユーザー** を想定して作成されています。
-
-* **Pythonでのツール作成に少し慣れてきた方**
-    * `Streamlit` を使ってブラウザで動くアプリを作った経験がある。
-    * GitHub と Streamlit Cloud を連携して、アプリを公開したことがある（または興味がある）。
-* **一歩進んだ技術にチャレンジしたい方**
-    * データの保存先がいつも CSV や Excel で、**本格的なデータベース（PostgreSQLなど）** を使った開発に挑戦してみたい。
-    * 自分のPCを立ち上げっぱなしにせず、プログラムを **定期実行（GitHub Actions）** させる「自動化」の仕組みを知りたい。
 
 ---
 
