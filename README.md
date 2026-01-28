@@ -125,8 +125,8 @@ alter table customers disable row level security;
 必要なライブラリを指定します。
 
 ```text
-streamlit
-supabase
+streamlit==1.53.1
+supabase==2.27.2
 ```
 
 ### ② `app.py`
@@ -376,11 +376,13 @@ GitHub ActionsがSupabaseに接続するためのパスワード設定です。
 ## 5. Streamlit Cloudへのデプロイ
 最後にアプリを表側に公開します。
 
-1.  [Streamlit Cloud](https://streamlit.io/cloud) にログインします。
-2.  「Create app」を押し、先ほどのGitHubリポジトリを選択します。
-3.  Main file pathにて「app.py」を選択します。
-4.  **Advanced settings** をクリックします。
-5.  ここにSupabaseの鍵情報を入力します（`app.py` が使うため）。
+1. [Streamlit Cloud](https://streamlit.io/cloud) にログインします。
+2. 「Create app」を押し、先ほどのGitHubリポジトリを選択します。
+3. Main file pathにて「app.py」を選択します。
+4. **Advanced settings** をクリックします。
+5. **Python version** の項目で **「3.13」** を選択します。
+    * ※ここは飛ばしても良い手順ですが、念の為私と同じバージョンで動作させるための手順です。
+6. その下の **Secrets** 欄にSupabaseの鍵情報を入力します（`app.py` が使うため）。
     * ※ローカルで作った `secrets.toml` の中身をコピペすればOKです。
 
 ```toml
