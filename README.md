@@ -1,4 +1,4 @@
-# Supabase + Streamlit + GitHub Actions で作る「顧客管理アプリ」開発ログ
+# Supabase + Streamlit + GitHub Actions で作る「顧客管理アプリ」開発チュートリアル
 
 「Supabase + Streamlit + GitHub Actions (すべて無料)」を使って「シンプルな顧客情報のCRUDアプリ」をデプロイまでやります。
 ※SupabaseとGitHub Actionsは初めて使うことを想定しています。
@@ -11,6 +11,39 @@
 * **自動削除**: 登録から24時間以上経過したデータは、GitHub Actionsを使って自動的に削除（Supabaseの一時停止防止や容量節約のため）。
 
 今回は**「GitHubのブラウザ画面からのドラッグ＆ドロップ」**を多用し、エディタ等でのコマンドライン操作を行わなくても完結するように手順を組んでいます。
+
+---
+
+## 今回作成するアプリ
+
+以下のリンクから、ブラウザ上で実際にアプリを操作できます。
+[https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/](https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/)
+
+---
+
+## 🚀 このチュートリアルを完走すると：この構成が持つ可能性
+
+これは「Supabase + Streamlit + GitHub Actions」を使った完全無料・サーバーレスなアプリ開発プロジェクトです。
+
+この構成を一度体験することで、あなたの技術的な「武器」は大きく広がります。
+
+1.  **Supabase (PostgreSQL) の力**
+    * 単なるExcelやCSV保存とは異なり、**本格的なリレーショナルデータベース(RDBMS) + SQL** が手に入ります。
+    * これにより、数万件のデータ管理、複雑な検索、他のアプリとのデータ連携が可能になります。
+    * テーブル同士を組み合わせてより複雑な要件に対応できるプログラミングが可能になります。
+    * 具体的には顧客テーブルと対応履歴テーブルを別々に管理して紐付ける（JOIN）など、**データの重複を排除した、保守性の高い本格的なシステム設計**が可能になります。
+
+2.  **GitHub Actions の力**
+    * 自分のPCを立ち上げていなくても、**クラウド上でプログラムを自動実行できる仕組み** が手に入ります。
+    * 「毎日決まった時間（スケジュールトリガー）」や「コードを更新した時（プッシュトリガー）」に、Pythonスクリプトを自動で動かせます。
+
+**✨ これらを組み合わせると、こんなことができます**
+
+* **自動データ収集アプリ**: 毎日特定のサイトをスクレイピングし、価格やニュースをSupabaseに蓄積し続ける。
+* **業務自動化ツール**: データベース内の顧客情報の期限を毎日チェックし、期日が迫った顧客がいればChatworkやSlack、LINE、Discordに自動通知を送る。
+* **ダッシュボード**: 蓄積されたデータをStreamlitでグラフ化し、リアルタイムで経営数値を可視化する。
+
+これらはすべて、**サーバー代0円**(電気代もかからない!!)で運用可能です。ぜひこの構成をベースに、自分だけの業務効率化ツールを開発してみてください！
 
 ---
 
@@ -250,7 +283,7 @@ streamlit run app.py
 ここがデプロイの肝です。
 
 ### 1. リポジトリ作成とアップロード
-1.  GitHubにログインし、「New Repository」を作成します（例: `supabase-streamlit-github-actions-customer-app-XXXX`）。Choose visibillityは、「Public」を選択する。
+1.  GitHubにログインし、「New Repository」を作成します（例: `supabase-streamlit-github-actions-customer-app-XXXX`）。Choose visibilityは、「Public」を選択する。
 2.  作成したリポジトリの画面で「uploading an existing file」を選択します。
 3.  **`requirements.txt`, `app.py`, `cleanup.py` の3つだけ**をドラッグ＆ドロップして、「Commit changes」を押します。
     * ※注意: `.venv` フォルダ、`.streamlit` フォルダ、`secrets.toml` はアップロードしません。
@@ -293,7 +326,7 @@ jobs:
 ```
 3.  「Commit changes」を押して保存します。
 
-※なお、「さっき貼り付けたYAMLファイルの中身を確認・修正したい」場合は、リポジトリの「Code」タブからファイルを探します。().github/workflows → main.yml)
+※なお、「さっき貼り付けたYAMLファイルの中身を確認・修正したい」場合は、リポジトリの「Code」タブからファイルを探します。(.github/workflows → main.yml)
 
 
 ### 3. GitHub Secretsの設定
@@ -332,7 +365,7 @@ SUPABASE_URL = "あなたのSupabaseのURL"
 SUPABASE_KEY = "あなたのSupabaseのKey"
 ```
 
-5.  「Deploy!」ボタンを押します。
+6.  「Deploy!」ボタンを押します。
 
 ---
 
@@ -342,27 +375,3 @@ SUPABASE_KEY = "あなたのSupabaseのKey"
 1.  **登録**: Streamlit画面から入力 → Supabaseに保存（UUID自動発行）。
 2.  **表示**: UUIDで検索 → データを表示。
 3.  **自動化**: GitHub Actionsが定期的に起動し、Pythonスクリプト経由で「24時間以上前のデータ」をSupabaseから削除。
-
-### 🚀 完走した方へ：この構成が持つ可能性
-
-「Supabase + Streamlit + GitHub Actions」を使った完全無料・サーバーレスなアプリ開発プロジェクト、完遂おめでとうございます！
-
-この構成を手に入れたことで、あなたの技術的な「武器」は大きく広がりました。
-
-1.  **Supabase (PostgreSQL) の力**
-    * 単なるExcelやCSV保存とは異なり、**本格的なリレーショナルデータベース(RDBMS) + SQL** が手に入りました。
-    * これにより、数万件のデータ管理、複雑な検索、他のアプリとのデータ連携が可能になります。
-    * テーブル同士を組み合わせてより複雑な要件に対応できるプログラミングが可能です。
-    * 具体的には顧客テーブルと対応履歴テーブルを別々に管理して紐付ける（JOIN）など、**データの重複を排除した、保守性の高い本格的なシステム設計**が可能になります。
-
-2.  **GitHub Actions の力**
-    * 自分のPCを立ち上げていなくても、**クラウド上でプログラムを自動実行できる仕組み** を手に入れました。
-    * 「毎日決まった時間（スケジュールトリガー）」や「コードを更新した時（プッシュトリガー）」に、Pythonスクリプトを自動で動かせます。
-
-**✨ これらを組み合わせると、こんなことができます**
-
-* **自動データ収集アプリ**: 毎日特定のサイトをスクレイピングし、価格やニュースをSupabaseに蓄積し続ける。
-* **業務自動化ツール**: データベース内の顧客情報の期限を毎日チェックし、期日が迫った顧客がいればChatworkやSlack、LINE、Discordに自動通知を送る。
-* **ダッシュボード**: 蓄積されたデータをStreamlitでグラフ化し、リアルタイムで経営数値を可視化する。
-
-これらはすべて、**サーバー代0円**で運用可能です。ぜひこの構成をベースに、自分だけの業務効率化ツールを開発してみてください！
