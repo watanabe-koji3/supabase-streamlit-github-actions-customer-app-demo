@@ -32,6 +32,9 @@
 ## 今回作成するアプリ
 
 以下のリンクから、ブラウザ上で実際にアプリを操作できます。
+
+しばらくアクセスがないとスリープ状態になるので、その際には「Yes, get this app back up!」などをクリックして再開させると操作できるようになります。
+
 [https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/](https://supabase-app-app-actions-customer-app-demo-cte6vm2njrmnklir4ug.streamlit.app/)
 
 
